@@ -3,236 +3,219 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HabitGuard – Break Bad Habits</title>
+<title>Habit - The - App</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
 <style>
 
-body{
-margin:0;
-font-family:'Inter',sans-serif;
-background:#fdfaf6;
-color:#333;
-}
+body { margin:0; font-family:'Inter', sans-serif; background:#fdfaf6; color:#333; scroll-behavior:smooth;}
+a { text-decoration:none; color:inherit;}
+h1,h2,h3 { margin:0; }
 
-section{
-max-width:1200px;
-margin:auto;
-padding:80px 20px;
-}
+section { padding:80px 20px; max-width:1200px; margin:0 auto; }
 
-h1,h2,h3{
-margin:0;
-}
+img { max-width:100%; border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.05); transition:0.3s; }
 
-a{
-text-decoration:none;
-color:inherit;
-}
+/* Hero */
 
-/* HERO */
-
-header{
+header {
 background:#e6f2f1;
-height:100vh;
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
+height:100vh;
 text-align:center;
 }
 
-header h1{
+header h1 {
 font-size:3em;
+font-weight:700;
+color:#2c2c2c;
 margin-bottom:20px;
 }
 
-header p{
+header p {
+font-size:1.2em;
 max-width:600px;
-margin-bottom:30px;
 color:#555;
+margin-bottom:40px;
 }
 
-.button{
+.header-button {
 background:#f5cda0;
-padding:16px 35px;
+color:#2c2c2c;
+padding:18px 40px;
 border-radius:30px;
 font-weight:600;
+transition:0.3s;
+display:inline-block;
 }
 
-/* FEATURES */
+.header-button:hover {
+background:#e8b781;
+transform:scale(1.05);
+}
 
-.features{
+/* Features */
+
+.features {
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:30px;
+gap:40px;
 margin-top:40px;
 }
 
-.feature{
-background:#f7f5f2;
-padding:25px;
+.feature {
+background:#f9f7f4;
 border-radius:15px;
-width:260px;
-box-shadow:0 10px 20px rgba(0,0,0,0.05);
-text-align:center;
-}
-
-/* SCREENSHOTS */
-
-.screenshots{
-display:flex;
-justify-content:center;
-gap:60px;
-flex-wrap:wrap;
-margin-top:50px;
-}
-
-/* PHONE */
-
-.phone{
+padding:30px;
 width:280px;
-background:#111;
-border-radius:40px;
-padding:10px;
-box-shadow:0 30px 50px rgba(0,0,0,0.3);
+box-shadow:0 10px 25px rgba(0,0,0,0.05);
+transition:0.3s;
 }
 
-.notch{
-width:120px;
-height:18px;
-background:black;
-border-radius:10px;
-margin:auto;
-margin-bottom:5px;
+.feature:hover {
+transform:translateY(-5px);
+box-shadow:0 15px 35px rgba(0,0,0,0.08);
 }
 
-.screen{
-background:white;
-border-radius:30px;
-padding:18px;
-}
-
-/* APP UI */
-
-.app-header{
-text-align:center;
+.feature i {
+font-size:2.5em;
+color:#408c9f;
 margin-bottom:15px;
 }
 
-.app-header h3{
-margin:0;
+section h2 {
+font-size:2.2em;
+font-weight:700;
 color:#408c9f;
+text-align:center;
+margin-bottom:60px;
 }
 
-.app-header p{
-font-size:12px;
-color:gray;
-margin:0;
+section p {
+max-width:700px;
+margin:0 auto 20px;
+color:#555;
+text-align:center;
 }
 
-.habit{
+/* Screenshots */
+
+.screenshots {
 display:flex;
-justify-content:space-between;
-background:#f4f4f4;
+flex-wrap:wrap;
+justify-content:center;
+gap:40px;
+margin-top:40px;
+}
+
+/* PHONE MOCKUP */
+
+.phone {
+width:260px;
+background:#111;
+border-radius:35px;
 padding:10px;
-border-radius:10px;
-margin-bottom:8px;
+box-shadow:0 25px 40px rgba(0,0,0,0.25);
+}
+
+.phone-screen {
+background:white;
+border-radius:25px;
+padding:15px;
 font-size:14px;
 }
 
-.good{
-color:#2e9e63;
-font-weight:bold;
+/* App UI */
+
+.app-title {
+text-align:center;
+font-weight:600;
+color:#408c9f;
+margin-bottom:10px;
 }
 
-.bad{
-color:#d65a5a;
-font-weight:bold;
+.habit {
+display:flex;
+justify-content:space-between;
+background:#f4f4f4;
+padding:8px;
+border-radius:8px;
+margin-bottom:6px;
 }
 
-.section-title{
-font-size:13px;
-font-weight:bold;
-margin-top:15px;
-margin-bottom:8px;
-}
+.good { color:#2e9e63; font-weight:600; }
+.bad { color:#d65a5a; font-weight:600; }
 
-.calendar{
+.calendar {
 display:grid;
 grid-template-columns:repeat(7,1fr);
-gap:5px;
+gap:4px;
+margin-top:10px;
 }
 
-.day{
+.day {
 background:#eee;
-border-radius:6px;
-font-size:11px;
 padding:6px;
+font-size:11px;
 text-align:center;
+border-radius:5px;
 }
 
-.day.good{
-background:#c8f0da;
-}
+.day.good { background:#c8f0da; }
+.day.bad { background:#ffd6d6; }
 
-.day.bad{
-background:#ffd6d6;
-}
-
-.streak{
-margin-top:15px;
+.streak {
+margin-top:10px;
 background:#fff3d6;
-padding:10px;
-border-radius:10px;
+padding:8px;
+border-radius:8px;
 text-align:center;
-font-weight:bold;
 font-size:13px;
 }
 
 /* CTA */
 
-.cta{
+.cta {
 background:#d8f0f2;
+padding:80px 20px;
 text-align:center;
 border-radius:20px;
-padding:60px 20px;
+margin-top:60px;
 }
 
-.cta a{
+.cta h2 { color:#408c9f; margin-bottom:20px;}
+
+.cta a {
 background:#f5cda0;
-padding:16px 35px;
+color:#2c2c2c;
+padding:18px 40px;
 border-radius:30px;
+font-weight:600;
 display:inline-block;
-margin-top:20px;
 }
 
-/* FOOTER */
+/* Footer */
 
-footer{
+footer {
 background:#eae6e0;
 text-align:center;
-padding:30px;
-margin-top:60px;
-font-size:14px;
+padding:30px 20px;
+font-size:0.9em;
 color:#555;
+margin-top:60px;
 }
 
-/* MOBILE */
+/* Responsive */
 
-@media(max-width:768px){
-
-header h1{
-font-size:2.2em;
-}
-
-.features{
-flex-direction:column;
-align-items:center;
-}
-
+@media (max-width:768px){
+header h1 { font-size:2.2em; }
+.features, .screenshots { flex-direction:column; align-items:center; }
 }
 
 </style>
@@ -241,42 +224,47 @@ align-items:center;
 <body>
 
 <header>
-
-<h1>HabitGuard</h1>
+<h1>Habit - The - App</h1>
 
 <p>
-Break bad habits like smoking, drinking, and unhealthy routines.
-Track your progress, maintain streaks, and stay accountable.
+Track your habits, break bad habits like smoking or drinking,
+and stay motivated with streaks and progress tracking.
 </p>
 
-<a class="button" href="#">Try the Demo</a>
+<a class="header-button" href="https://officalac123-star.github.io/habit-the-app/" target="_blank">
+Try the Demo
+</a>
 
 </header>
 
 <section>
 
-<h2 style="text-align:center;">Features</h2>
+<h2>Features</h2>
 
 <div class="features">
 
 <div class="feature">
-<h3>Track Bad Habits</h3>
-<p>Monitor habits like smoking, drinking, or social media addiction.</p>
+<i class="fas fa-calendar-check"></i>
+<h3>Daily Habit Tracking</h3>
+<p>Track habits like smoking, drinking, or social media usage.</p>
 </div>
 
 <div class="feature">
-<h3>Streak Tracking</h3>
-<p>Stay motivated by building streaks of days without relapsing.</p>
+<i class="fas fa-gift"></i>
+<h3>Reward System</h3>
+<p>Stay motivated with rewards when you stay clean from bad habits.</p>
 </div>
 
 <div class="feature">
-<h3>Calendar Progress</h3>
-<p>Visualize your progress across weeks and months.</p>
+<i class="fas fa-fire"></i>
+<h3>Streaks</h3>
+<p>Build streaks for every day you stay consistent.</p>
 </div>
 
 <div class="feature">
-<h3>Stay Accountable</h3>
-<p>Understand your patterns and improve daily.</p>
+<i class="fas fa-bell"></i>
+<h3>Reminders</h3>
+<p>Gentle reminders help you stay accountable.</p>
 </div>
 
 </div>
@@ -285,7 +273,9 @@ Track your progress, maintain streaks, and stay accountable.
 
 <section>
 
-<h2 style="text-align:center;">App Preview</h2>
+<h2>App Screenshots</h2>
+
+<p>See how Habit – The – App looks on mobile.</p>
 
 <div class="screenshots">
 
@@ -293,14 +283,9 @@ Track your progress, maintain streaks, and stay accountable.
 
 <div class="phone">
 
-<div class="notch"></div>
+<div class="phone-screen">
 
-<div class="screen">
-
-<div class="app-header">
-<h3>HabitGuard</h3>
-<p>Your Progress</p>
-</div>
+<div class="app-title">Habit Tracker</div>
 
 <div class="habit">
 <span>🚬 Smoking</span>
@@ -322,21 +307,15 @@ Track your progress, maintain streaks, and stay accountable.
 </div>
 
 </div>
-
 </div>
 
 <!-- PHONE 2 -->
 
 <div class="phone">
 
-<div class="notch"></div>
+<div class="phone-screen">
 
-<div class="screen">
-
-<div class="app-header">
-<h3>Monthly Tracker</h3>
-<p>April</p>
-</div>
+<div class="app-title">Monthly Progress</div>
 
 <div class="calendar">
 
@@ -359,11 +338,10 @@ Track your progress, maintain streaks, and stay accountable.
 </div>
 
 <div class="streak">
-📊 Progress this month
+📊 Monthly Habit Progress
 </div>
 
 </div>
-
 </div>
 
 </div>
@@ -372,21 +350,21 @@ Track your progress, maintain streaks, and stay accountable.
 
 <section class="cta">
 
-<h2>Start Breaking Bad Habits</h2>
+<h2>Start Building Better Habits Today</h2>
 
 <p>
-HabitGuard helps you stay accountable and build healthier routines.
+Experience Habit – The – App and take control of your daily routines.
 </p>
 
-<a href="#">Start Now</a>
+<a href="https://officalac123-star.github.io/habit-the-app/" target="_blank">
+Try the Demo Now
+</a>
 
 </section>
 
 <footer>
 
-© 2026 HabitGuard  
-<br>
-Privacy Policy • Contact
+&copy; 2026 Habit - The - App | MIT License | Privacy Policy | Contact
 
 </footer>
 
