@@ -6,104 +6,296 @@
 <title>Habit - The - App</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
 <style>
+
 body { margin:0; font-family:'Inter', sans-serif; background:#fdfaf6; color:#333; scroll-behavior:smooth;}
 a { text-decoration:none; color:inherit;}
 h1,h2,h3 { margin:0; }
-section { padding:80px 20px; max-width:1200px; margin:0 auto; }
-img { max-width:100%; border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.05); transition:0.3s; }
 
-/* Hero */
-header { background:#e6f2f1; display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh; text-align:center; }
-header h1 { font-size:3em; font-weight:700; color:#2c2c2c; margin-bottom:20px; opacity:0; animation:fadeIn 1s forwards;}
-header p { font-size:1.2em; max-width:600px; color:#555; margin-bottom:40px; opacity:0; animation:fadeIn 1s 0.5s forwards;}
-.header-button { background:#f5cda0; color:#2c2c2c; padding:18px 40px; border-radius:30px; font-weight:600; transition:0.3s; display:inline-block; opacity:0; animation:fadeIn 1s 1s forwards; }
+section { padding:80px 20px; max-width:1200px; margin:0 auto; }
+
+header {
+background:#e6f2f1;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+height:100vh;
+text-align:center;
+}
+
+header h1 { font-size:3em; font-weight:700; margin-bottom:20px; }
+header p { font-size:1.2em; max-width:600px; color:#555; margin-bottom:40px; }
+
+.header-button {
+background:#f5cda0;
+padding:18px 40px;
+border-radius:30px;
+font-weight:600;
+display:inline-block;
+}
+
 .header-button:hover { background:#e8b781; transform:scale(1.05); }
 
-/* Features */
+/* FEATURES */
+
 .features { display:flex; flex-wrap:wrap; justify-content:center; gap:40px; margin-top:40px; }
-.feature { background:#f9f7f4; border-radius:15px; padding:30px; width:280px; box-shadow:0 10px 25px rgba(0,0,0,0.05); transition:0.3s; opacity:0; transform:translateY(20px); animation:fadeUp 0.8s forwards; }
-.feature:hover { transform:translateY(-5px); box-shadow:0 15px 35px rgba(0,0,0,0.08); }
+
+.feature {
+background:#f9f7f4;
+border-radius:15px;
+padding:30px;
+width:280px;
+box-shadow:0 10px 25px rgba(0,0,0,0.05);
+}
+
 .feature i { font-size:2.5em; color:#408c9f; margin-bottom:15px; }
 
-section h2 { font-size:2.2em; font-weight:700; color:#408c9f; text-align:center; margin-bottom:60px; opacity:0; animation:fadeIn 1s forwards; }
-section p { max-width:700px; margin:0 auto 20px; color:#555; text-align:center; opacity:0; animation:fadeIn 1s forwards; }
-
-/* Screenshots */
-.screenshots { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:40px; }
-
-/* Call-to-Action */
-.cta { background:#d8f0f2; padding:80px 20px; text-align:center; border-radius:20px; margin-top:60px; }
-.cta h2 { color:#408c9f; margin-bottom:20px;}
-.cta a { background:#f5cda0; color:#2c2c2c; padding:18px 40px; border-radius:30px; font-weight:600; transition:0.3s; display:inline-block; }
-.cta a:hover { background:#e8b781; transform:scale(1.05); }
-
-/* Footer */
-footer { background:#eae6e0; text-align:center; padding:30px 20px; font-size:0.9em; color:#555; margin-top:60px; }
-
-/* Animations */
-@keyframes fadeIn { from {opacity:0} to {opacity:1} }
-@keyframes fadeUp { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
-
-/* Responsive */
-@media (max-width:768px){
-  header h1 { font-size:2.2em; }
-  .features, .screenshots { flex-direction:column; align-items:center; }
+section h2 {
+font-size:2.2em;
+font-weight:700;
+color:#408c9f;
+text-align:center;
+margin-bottom:60px;
 }
+
+section p {
+max-width:700px;
+margin:0 auto 20px;
+color:#555;
+text-align:center;
+}
+
+/* SCREENSHOTS */
+
+.screenshots {
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.phone {
+width:300px;
+background:white;
+border-radius:25px;
+padding:20px;
+box-shadow:0 20px 40px rgba(0,0,0,0.08);
+}
+
+.phone-header {
+background:#408c9f;
+color:white;
+padding:10px;
+border-radius:10px;
+text-align:center;
+font-weight:600;
+margin-bottom:15px;
+}
+
+/* habits */
+
+.habit {
+background:#f4f4f4;
+padding:10px;
+border-radius:10px;
+margin-bottom:8px;
+display:flex;
+justify-content:space-between;
+}
+
+.good { color:#2e9e63; font-weight:600; }
+.bad { color:#d65a5a; font-weight:600; }
+
+/* calendar */
+
+.calendar {
+display:grid;
+grid-template-columns:repeat(7,1fr);
+gap:6px;
+margin-top:15px;
+}
+
+.day {
+background:#eee;
+padding:6px;
+text-align:center;
+border-radius:6px;
+font-size:12px;
+}
+
+.day.good { background:#c8f0da; }
+.day.bad { background:#ffd6d6; }
+
+/* streak */
+
+.streak {
+margin-top:15px;
+background:#fff3d6;
+padding:10px;
+border-radius:10px;
+text-align:center;
+font-weight:600;
+}
+
+/* rewards */
+
+.reward {
+background:#e8f7ff;
+padding:10px;
+border-radius:10px;
+margin-top:10px;
+text-align:center;
+font-weight:600;
+}
+
+/* CTA */
+
+.cta {
+background:#d8f0f2;
+padding:80px 20px;
+text-align:center;
+border-radius:20px;
+margin-top:60px;
+}
+
+.cta a {
+background:#f5cda0;
+padding:18px 40px;
+border-radius:30px;
+font-weight:600;
+display:inline-block;
+}
+
+/* footer */
+
+footer {
+background:#eae6e0;
+text-align:center;
+padding:30px 20px;
+font-size:0.9em;
+color:#555;
+margin-top:60px;
+}
+
+/* responsive */
+
+@media (max-width:768px){
+header h1 { font-size:2.2em; }
+.screenshots { flex-direction:column; align-items:center; }
+}
+
 </style>
 </head>
+
 <body>
 
 <header>
-  <h1>Habit - The - App</h1>
-  <p>Track your habits, break bad habits, and stay motivated with gentle rewards. Build better routines effortlessly.</p>
-  <a class="header-button" href="https://officalac123-star.github.io/habit-the-app/" target="_blank">Try the Demo</a>
+<h1>Habit - The - App</h1>
+<p>Track your habits, break bad habits, and stay motivated with gentle rewards. Build better routines effortlessly.</p>
+<a class="header-button" href="https://officalac123-star.github.io/habit-the-app/" target="_blank">Try the Demo</a>
 </header>
 
 <section>
-  <h2>Features</h2>
-  <div class="features">
-    <div class="feature" style="animation-delay:0.2s">
-      <i class="fas fa-calendar-check"></i>
-      <h3>Daily Habit Tracking</h3>
-      <p>Monitor your habits every day and see your progress in a simple, intuitive interface.</p>
-    </div>
-    <div class="feature" style="animation-delay:0.4s">
-      <i class="fas fa-gift"></i>
-      <h3>Reward System</h3>
-      <p>Stay motivated by earning gentle rewards when you complete your habits.</p>
-    </div>
-    <div class="feature" style="animation-delay:0.6s">
-      <i class="fas fa-fire"></i>
-      <h3>Streaks</h3>
-      <p>Keep your motivation high by maintaining streaks for completed habits.</p>
-    </div>
-    <div class="feature" style="animation-delay:0.8s">
-      <i class="fas fa-bell"></i>
-      <h3>Reminders</h3>
-      <p>Get subtle notifications to stay consistent without feeling overwhelmed.</p>
-    </div>
-  </div>
+
+<h2>Features</h2>
+
+<div class="features">
+
+<div class="feature">
+<i class="fas fa-calendar-check"></i>
+<h3>Daily Habit Tracking</h3>
+<p>Monitor your habits every day and see your progress in a simple, intuitive interface.</p>
+</div>
+
+<div class="feature">
+<i class="fas fa-gift"></i>
+<h3>Reward System</h3>
+<p>Stay motivated by earning gentle rewards when you complete your habits.</p>
+</div>
+
+<div class="feature">
+<i class="fas fa-fire"></i>
+<h3>Streaks</h3>
+<p>Keep your motivation high by maintaining streaks for completed habits.</p>
+</div>
+
+<div class="feature">
+<i class="fas fa-bell"></i>
+<h3>Reminders</h3>
+<p>Get subtle notifications to stay consistent without feeling overwhelmed.</p>
+</div>
+
+</div>
+
 </section>
 
 <section>
-  <h2>App Screenshots</h2>
-  <p>See how Habit – The – App looks in action on mobile and desktop.</p>
-  <div class="screenshots">
-    <!-- Professional, minimal screenshots with calendar, streaks, and rewards -->
-    <img src="https://i.imgur.com/0vWZ8dD.png" alt="Mobile App Screenshot with Calendar and Streaks">
-    <img src="https://i.imgur.com/5LkXxKJ.png" alt="Desktop App Screenshot with Habit Progress and Rewards">
-  </div>
+
+<h2>App Screenshots</h2>
+<p>See how Habit – The – App looks in action.</p>
+
+<div class="screenshots">
+
+<!-- SCREENSHOT 1 -->
+
+<div class="phone">
+
+<div class="phone-header">Break Bad Habits</div>
+
+<div class="habit">🚫 No Social Media <span class="good">✔ Clean</span></div>
+<div class="habit">🚫 No Junk Food <span class="good">✔ Clean</span></div>
+<div class="habit">🚫 Nail Biting <span class="bad">⚠ Slip</span></div>
+
+<div class="calendar">
+
+<div class="day good">1</div>
+<div class="day good">2</div>
+<div class="day good">3</div>
+<div class="day good">4</div>
+<div class="day good">5</div>
+<div class="day bad">6</div>
+<div class="day">7</div>
+
+</div>
+
+<div class="streak">🔥 Clean Streak: 5 Days</div>
+
+</div>
+
+<!-- SCREENSHOT 2 -->
+
+<div class="phone">
+
+<div class="phone-header">Rewards</div>
+
+<div class="reward">🎁 Reward Unlocked: Movie Night</div>
+<div class="reward">🎮 Reward: 30 Minutes Gaming</div>
+<div class="reward">🍫 Reward: Cheat Snack</div>
+
+<div class="streak">⭐ Progress: 72% Habit Control</div>
+
+</div>
+
+</div>
+
 </section>
 
 <section class="cta">
-  <h2>Start Building Better Habits Today</h2>
-  <p>Experience Habit – The – App and take control of your daily routines.</p>
-  <a href="https://officalac123-star.github.io/habit-the-app/" target="_blank">Try the Demo Now</a>
+
+<h2>Start Building Better Habits Today</h2>
+
+<p>Experience Habit – The – App and take control of your daily routines.</p>
+
+<a href="https://officalac123-star.github.io/habit-the-app/" target="_blank">Try the Demo Now</a>
+
 </section>
 
 <footer>
-  &copy; 2026 Habit - The - App | MIT License | <a href="#">Privacy Policy</a> | <a href="#">Contact</a>
+
+© 2026 Habit - The - App | MIT License | <a href="#">Privacy Policy</a> | <a href="#">Contact</a>
+
 </footer>
 
 </body>
