@@ -1,59 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Habit - The - App</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <style>
-    /* Global */
-    body { margin:0; font-family:'Inter', sans-serif; background:#fdfaf6; color:#333; line-height:1.6; scroll-behavior: smooth;}
-    a { text-decoration:none; color:inherit; }
-    h1,h2,h3 { margin:0; }
-    section { padding:80px 20px; max-width:1200px; margin:0 auto; }
-    img { max-width:100%; border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.05); transition:0.3s; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Habit - The - App</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+body { margin:0; font-family:'Inter', sans-serif; background:#fdfaf6; color:#333; scroll-behavior:smooth;}
+a { text-decoration:none; color:inherit;}
+h1,h2,h3 { margin:0; }
+section { padding:80px 20px; max-width:1200px; margin:0 auto; }
+img { max-width:100%; border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.05); transition:0.3s; }
 
-    /* Hero / Header */
-    header { background:#e6f2f1; display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh; text-align:center; }
-    header h1 { font-size:3em; font-weight:700; color:#2c2c2c; margin-bottom:20px; opacity:0; animation:fadeIn 1s forwards; }
-    header p { font-size:1.2em; max-width:600px; color:#555; margin-bottom:40px; opacity:0; animation:fadeIn 1s 0.5s forwards; }
-    .button { background:#f5cda0; color:#2c2c2c; padding:18px 40px; border-radius:30px; font-weight:600; transition:0.3s; display:inline-block; opacity:0; animation:fadeIn 1s 1s forwards; }
-    .button:hover { background:#e8b781; }
+/* Hero */
+header { background:#e6f2f1; display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh; text-align:center; }
+header h1 { font-size:3em; font-weight:700; color:#2c2c2c; margin-bottom:20px; opacity:0; animation:fadeIn 1s forwards;}
+header p { font-size:1.2em; max-width:600px; color:#555; margin-bottom:40px; opacity:0; animation:fadeIn 1s 0.5s forwards;}
+.header-button { background:#f5cda0; color:#2c2c2c; padding:18px 40px; border-radius:30px; font-weight:600; transition:0.3s; display:inline-block; opacity:0; animation:fadeIn 1s 1s forwards; }
+.header-button:hover { background:#e8b781; transform:scale(1.05); }
 
-    /* Features */
-    .features { display:flex; flex-wrap:wrap; justify-content:center; gap:40px; margin-top:40px; }
-    .feature { background:#f9f7f4; border-radius:15px; padding:30px; width:280px; box-shadow:0 10px 25px rgba(0,0,0,0.05); transition:0.3s; opacity:0; transform:translateY(20px); animation:fadeUp 0.8s forwards; }
-    .feature:hover { transform: translateY(-5px); box-shadow:0 15px 35px rgba(0,0,0,0.08); }
-    .feature i { font-size:2.5em; color:#408c9f; margin-bottom:15px; }
+/* Features */
+.features { display:flex; flex-wrap:wrap; justify-content:center; gap:40px; margin-top:40px; }
+.feature { background:#f9f7f4; border-radius:15px; padding:30px; width:280px; box-shadow:0 10px 25px rgba(0,0,0,0.05); transition:0.3s; opacity:0; transform:translateY(20px); animation:fadeUp 0.8s forwards; }
+.feature:hover { transform:translateY(-5px); box-shadow:0 15px 35px rgba(0,0,0,0.08); }
+.feature i { font-size:2.5em; color:#408c9f; margin-bottom:15px; }
 
-    section h2 { font-size:2.2em; font-weight:700; color:#408c9f; text-align:center; margin-bottom:60px; opacity:0; animation:fadeIn 1s forwards; }
-    section p { max-width:700px; margin:0 auto 20px; color:#555; text-align:center; opacity:0; animation:fadeIn 1s forwards; }
+section h2 { font-size:2.2em; font-weight:700; color:#408c9f; text-align:center; margin-bottom:60px; opacity:0; animation:fadeIn 1s forwards; }
+section p { max-width:700px; margin:0 auto 20px; color:#555; text-align:center; opacity:0; animation:fadeIn 1s forwards; }
 
-    /* Screenshots */
-    .screenshots { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:40px; }
+/* Screenshots */
+.screenshots { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:40px; }
 
-    /* Footer */
-    footer { background:#eae6e0; text-align:center; padding:30px 20px; font-size:0.9em; color:#555; }
+/* Call-to-Action */
+.cta { background:#d8f0f2; padding:80px 20px; text-align:center; border-radius:20px; margin-top:60px; }
+.cta h2 { color:#408c9f; margin-bottom:20px;}
+.cta a { background:#f5cda0; color:#2c2c2c; padding:18px 40px; border-radius:30px; font-weight:600; transition:0.3s; display:inline-block; }
+.cta a:hover { background:#e8b781; transform:scale(1.05); }
 
-    /* Animations */
-    @keyframes fadeIn { from {opacity:0} to {opacity:1} }
-    @keyframes fadeUp { from {opacity:0; transform:translateY(20px)} to {opacity:1; transform:translateY(0)} }
+/* Footer */
+footer { background:#eae6e0; text-align:center; padding:30px 20px; font-size:0.9em; color:#555; margin-top:60px; }
 
-    /* Responsive */
-    @media (max-width:768px){
-      header h1 { font-size:2.2em; }
-      .features { flex-direction:column; align-items:center; }
-      .screenshots { flex-direction:column; align-items:center; }
-    }
-  </style>
+/* Animations */
+@keyframes fadeIn { from {opacity:0} to {opacity:1} }
+@keyframes fadeUp { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
+
+/* Responsive */
+@media (max-width:768px){
+  header h1 { font-size:2.2em; }
+  .features, .screenshots { flex-direction:column; align-items:center; }
+}
+</style>
 </head>
 <body>
 
 <header>
   <h1>Habit - The - App</h1>
-  <p>Track your habits, break bad habits, and stay motivated with gentle rewards. Build a better routine effortlessly.</p>
-  <a class="button" href="https://officalac123-star.github.io/habit-the-app/" target="_blank">Try the Demo</a>
+  <p>Track your habits, break bad habits, and stay motivated with gentle rewards. Build better routines effortlessly.</p>
+  <a class="header-button" href="https://officalac123-star.github.io/habit-the-app/" target="_blank">Try the Demo</a>
 </header>
 
 <section>
@@ -84,21 +88,22 @@
 
 <section>
   <h2>App Screenshots</h2>
-  <p>See how Habit – The – App looks in action on desktop and mobile.</p>
+  <p>See how Habit – The – App looks in action on mobile and desktop.</p>
   <div class="screenshots">
-    <img src="https://via.placeholder.com/300x600?text=Mobile+Mockup" alt="Mobile App Screenshot">
-    <img src="https://via.placeholder.com/400x300?text=Desktop+Mockup" alt="Desktop App Screenshot">
+    <!-- Realistic Habit app mockups -->
+    <img src="https://i.imgur.com/8m0Pq2S.png" alt="Mobile App Screenshot">
+    <img src="https://i.imgur.com/p7cV6FZ.png" alt="Desktop App Screenshot">
   </div>
 </section>
 
-<section>
-  <h2>How It Works</h2>
-  <p>Add your habits, track daily progress, and enjoy a rewarding experience that encourages lasting change.</p>
-  <a class="button" href="https://officalac123-star.github.io/habit-the-app/" target="_blank">View Demo</a>
+<section class="cta">
+  <h2>Start Building Better Habits Today</h2>
+  <p>Experience Habit – The – App and take control of your daily routines.</p>
+  <a href="https://officalac123-star.github.io/habit-the-app/" target="_blank">Try the Demo Now</a>
 </section>
 
 <footer>
-  &copy; 2026 Habit - The - App | MIT License
+  &copy; 2026 Habit - The - App | MIT License | <a href="#">Privacy Policy</a> | <a href="#">Contact</a>
 </footer>
 
 </body>
